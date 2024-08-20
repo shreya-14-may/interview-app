@@ -1,0 +1,38 @@
+// 20 JavaScript Promise Interview Questions (With Answers)
+
+1.What is a Promise in JavaScript?
+A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It acts as a placeholder for a value that might not be available yet but will be resolved in the future.
+
+2.How Does a Promise Work?
+A Promise can be in one of three states:
+
+Pending: The initial state, neither fulfilled nor rejected.
+Fulfilled: The operation completed successfully, and the promise has a value.
+Rejected: The operation failed, and the promise has a reason (usually an error) for the failure.
+
+Creating a Promise
+A Promise is created using the Promise constructor, which takes a function (executor) as an argument. The executor function is executed immediately by the Promise implementation, passing two functions: resolve and reject. 
+//promise.js 1st function
+
+3. Explain the states of a Promise
+A Promise has three states. 
+The Pending state is the initial state of a Promise. It means that the operation is yet to fulfil the Promise. 
+The Fulfilled state depicts the successful completion of the asynchronous operation. At this point, the Promise has a value, which is accessible via the then method. 
+The last state is Rejected. It indicates the failure of the Promise's asynchronous operation. The Promise has a reason for rejection, which you can access via the catch method.
+
+NOTE: One key point is that a Promise can only transition from Pending to Fulfilled or Rejected. Once it is in either state, it cannot change to another state.
+
+
+4.How to Chain Multiple Promises
+You can chain multiple promises together using the `.then()` method. 
+The `.then()` method returns a new Promise that resolves
+he result of one Promise can be passed to the next `.then()` in the chain, and so on
+
+5.How can you convert a callback-based function to a Promise-based function?
+Converting a callback-based function to a Promise-based function allows you to take advantage of the more modern and flexible Promise syntax, making your asynchronous code easier to read and maintain.
+
+Steps to Convert a Callback-Based Function to a Promise-Based Function
+Wrap the function logic inside a new Promise constructor:
+The Promise constructor takes an executor function as an argument, which in turn takes two parameters: resolve and reject.
+Inside the executor function, execute the callback-based function.
+In the callback function, call resolve() if the operation is successful, and reject() if it fails.
